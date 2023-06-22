@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chat App Template</title>
+  <link rel="stylesheet" href="bootstrap3.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="chat.css">
+  <!-- Font Awesome -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css"
+rel="stylesheet"
+/>
+</head>
+<body style="font-size: 15px;">
+  <div id="app" class="app">
+
+    <!-- LEFT SECTION -->
+
+    <section id="main-left" class="main-left">
+      <!-- header -->
+      <!-- chat list -->
+      <div id="chat-list" class="chat-list">
+        <!-- user lists -->
+        <div id="friends" class="d-grid gap-2 col-6 mx-auto mt-4">
+          <button class="btn btn-outline-warning btn-rounded">New Chat</button>
+        </div> 
+    </section>
+
+
+
+    <!-- RIGHT SECTION -->
+
+    <section id="main-right" class="main-right">
+      <!-- header -->
+      <div id="header-right" class="header-right">
+        <!-- profile pict -->
+        <div id="header-img" class="profile header-img">
+          <img src="images/bot.png" alt="">
+        </div>
+        
+        <!-- name -->
+        <div class="friends-credent">
+          <!-- name -->
+          <span class="name friend-name">Niah</span>
+          <span class="name friend-name" style="color: green;">Your health assistant</span>
+          <!-- <span class="friends-name">Niah</span> -->
+          <!-- last message -->
+        </div>
+
+        <!-- some btn -->
+      </div>
+
+      <!-- chat area -->
+      <div id="chat-area" class="chat-area">
+        <!-- chat content -->
+
+        <!-- FRIENDS CHAT TEMPLATE -->
+        <div id="friends-chat" class="friends-chat">
+          <div class="profile friends-chat-photo">
+            <img src="images/bot.png" alt="">
+          </div>
+          <div class="friends-chat-content">
+            <p class="friends-chat-name">Niah</p>
+            <p class="friends-chat-balloon">Welcome to Niah. I am an airtificail intelligence powered health chatbot.Please enter health symptoms</p>
+            <h5 class="chat-datetime">Sun, Aug 30 | 15:41</h5>
+          </div>
+        </div>
+
+        
+        <!-- YOUR CHAT TEMPLATE -->
+        <div id="your-chat" class="your-chat" style="display: none;">
+          <p class="your-chat-balloon">...</p>
+          <p class="chat-datetime"><span class="glyphicon glyphicon-ok"></span> Sun, Aug 30 | 15:45</p>
+        </div>
+      </div>
+
+      <!-- typing area -->
+        <form id="typing-area" class="typing-area" method="POST" action="">
+
+          <!-- input form -->
+          <input id="type-area" class="type-area" placeholder="Type something...">
+          <!-- attachment btn -->
+          <div class="attach-btn">
+            <span class="glyphicon glyphicon-paperclip file-btn"></span>
+            <span class="glyphicon glyphicon-camera"></span>
+            <span class="glyphicon glyphicon-picture"></span>
+          </div>
+        <!-- send btn -->
+        <button class="submit glyphicon glyphicon-send send-btn" value="submit" type="submit" style="border: none; background-color: white;"></button>
+    </form>
+    </section>
+  </div>
+    <!-- jQuey, Popper, BootstrapJS -->
+    <script src="bootstrap3.3/js/jquery-3.3.1.min.js"></script>
+    <script src="bootstrap3.3/js/bootstrap.min.js"></script>
+</body>
+</html>
