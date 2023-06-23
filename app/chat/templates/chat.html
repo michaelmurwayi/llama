@@ -87,10 +87,10 @@ rel="stylesheet"
       </div>
 
       <!-- typing area -->
-        <form id="typing-area" class="typing-area" method="POST" action="">
+        <form id="typing-area" class="typing-area" method="POST" action="{% url 'chat' %}">
           {% csrf_token %}
           <!-- input form -->
-          <input id="type-area" class="type-area" placeholder="Type something...">
+          <input id="message" name="message"  placeholder="Type something...">
           <!-- attachment btn -->
           <div class="attach-btn">
             <span class="glyphicon glyphicon-paperclip file-btn"></span>

@@ -19,8 +19,6 @@ class ChatView(TemplateView):
             # Set the unique identifier in a cookie
             request.set_cookie('user_id', user_id)
            
-            User_instance = User(user_id=user_id)
-            User_instance.save()
         
 
         # retrieve messages
@@ -32,11 +30,14 @@ class ChatView(TemplateView):
     def post(self, request):
         # get user_id from session or generate new one 0
         user_id = request.COOKIES.get('user_id')
-        message = request.get("Message")
+        # import ipdb;ipdb.set_trace()
+        message = request.POST.get("message")
 
         # save message to database
-        Message(user_id, message)
-        Message.save()
+        user = User.objects.get(user_id=user_id)
+        
+        message_instance = Message(user_id=user, message=message)
+        message_instance.save()
 
         return render(request, self.template_name)
     
@@ -46,4 +47,7 @@ def generate_user_id():
     random_num = str(random.randint(0, 9999)).zfill(4)  # Generate a random number padded with zeros
     user_id = timestamp + random_num
     
+    User_instance = User(user_id=user_id)
+    User_instance.save()
+
     return user_id
