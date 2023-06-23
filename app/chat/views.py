@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 import time
 import random
+from .models import User, Message
 
 # Create your views here.
 class ChatView(TemplateView):
@@ -17,14 +18,26 @@ class ChatView(TemplateView):
 
             # Set the unique identifier in a cookie
             request.set_cookie('user_id', user_id)
+           
+            User_instance = User(user_id=user_id)
+            User_instance.save()
+        
 
-        return render(request, self.template_name)
+        # retrieve messages
+        messages = Message.objects.filter(user_id=user_id)
+        
+        return render(request, self.template_name, {'Messages': messages})
 
 
     def post(self, request):
         # get user_id from session or generate new one 0
         user_id = request.COOKIES.get('user_id')
-        print(user_id)
+        message = request.get("Message")
+
+        # save message to database
+        Message(user_id, message)
+        Message.save()
+
         return render(request, self.template_name)
     
 
